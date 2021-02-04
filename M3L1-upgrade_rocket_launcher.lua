@@ -6,7 +6,7 @@ Bomb = Gun.Handle.Bomb
 --Ракетница будет стрелять из зелёной ракеты в сторону основной (на ракетнице)
 
 rocket_speed = 150 -- Определяет скорость ракеты
-explosion_delay = 0.2 -- Определяет задержку взрыва ракеты
+explosion_delay = 0.2 -- Определяет задержку включения скрипта взрыва ракеты
 --чем выше скорость, тем меньше должна быть задержка, может быть xD
 
 prevBomb = Bomb:Clone()
@@ -31,10 +31,6 @@ function bam()
 		Bullet.Weld:Destroy()
 		Instance.new('Fire',Bullet)
 		Bullet.BrickColor = BrickColor.Red()
-		
-		local dmg_script = game.ServerStorage.dmg:Clone()
-		dmg_script.Parent = Bullet
-		dmg_script.Disabled = false
 		
 		local velocity = Instance.new('BodyVelocity')
 		velocity.Parent = Bullet
