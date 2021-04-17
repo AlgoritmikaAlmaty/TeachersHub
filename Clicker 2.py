@@ -1,0 +1,34 @@
+import pygame
+
+pygame.init()
+
+YELLOW = (255,255,0)
+GREEN = (0,255,0)
+
+window = pygame.display.set_mode((500,500))
+
+window.fill(YELLOW)
+
+pygame.display.update()
+
+font1 = pygame.font.Font(None, 30) #Создаём шрифт
+
+class Area():
+    def __init__(self, x=0, y=0, width=10, height=10, color=None):
+        self.rect = pygame.Rect(x, y, width, height) 
+        self.fill_color = color
+        self.text = font1.render("Click", True, (255,255,255)) #Создаём текст
+    def color(self, new_color):
+        self.fill_color = new_color
+    def fill(self):
+        pygame.draw.rect(window, self.fill_color, self.rect)
+        window.blit(self.text, (self.rect.x, self.rect.y) ) #Отображаем текст
+    def outline(self, frame_color, thickness):
+        pygame.draw.rect(window, frame_color, self.rect, thickness)  
+
+card1 = Area(50,50, 50,80,GREEN)
+card1.fill()
+
+cards_list = [card1]
+
+pygame.display.update()
