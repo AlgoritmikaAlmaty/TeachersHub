@@ -29,6 +29,6 @@ class Area():
 card1 = Area(50,50, 50,80,GREEN)
 card1.fill()
 
-cards_list = [card1]
-
-pygame.display.update()
+while run:
+    clock.tick(40)
+    pygame.display.update()
